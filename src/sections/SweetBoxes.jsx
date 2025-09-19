@@ -273,7 +273,6 @@ const SweetBoxes = () => {
                 </div>
                 <div className={styles.imageOverlay}>
                   <div className={styles.overlayPattern}></div>
-                  <div className={styles.priceTag}>{sweetBox.price}</div>
                   <div className={styles.categoryBadge}>{sweetBox.category}</div>
                 </div>
               </div>

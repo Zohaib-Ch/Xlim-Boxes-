@@ -6,6 +6,7 @@ import styles from './FloatingActions.module.scss';
 const FloatingActions = () => {
   const containerRef = useRef(null);
   const whatsappRef = useRef(null);
+  const gmailRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -13,7 +14,7 @@ const FloatingActions = () => {
 
     const ctx = gsap.context(() => {
       // Initial state - hidden
-      gsap.set(whatsappRef.current, {
+      gsap.set([whatsappRef.current, gmailRef.current], {
         opacity: 0,
         scale: 0,
         y: 20
@@ -29,8 +30,17 @@ const FloatingActions = () => {
         delay: 2 // Show after page load
       });
 
+      gsap.to(gmailRef.current, {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'back.out(1.7)',
+        delay: 2.2 // Show slightly after WhatsApp
+      });
+
       // Floating animation
-      gsap.to(whatsappRef.current, {
+      gsap.to([whatsappRef.current, gmailRef.current], {
         y: -5,
         duration: 3,
         repeat: -1,
@@ -47,8 +57,38 @@ const FloatingActions = () => {
     window.open('https://wa.me/923704133315', '_blank');
   };
 
+  const handleGmailClick = () => {
+    // Check if mobile device
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      // Open Gmail app on mobile
+      window.open('googlegmail://co?to=Xlimboxes@gmail.com&subject=Inquiry%20about%20Packaging', '_blank');
+    } else {
+      // Open Gmail web on desktop
+      window.open('https://mail.google.com/mail/?view=cm&fs=1&to=Xlimboxes@gmail.com&su=Inquiry%20about%20Packaging', '_blank');
+    }
+  };
+
   return (
     <div ref={containerRef} className={styles.floatingActions}>
+      {/* Gmail Button */}
+      <button
+        ref={gmailRef}
+        className={`${styles.floatingBtn} ${styles.gmailBtn}`}
+        onClick={handleGmailClick}
+        aria-label="Email us on Gmail"
+        title="Gmail Contact"
+      >
+        <div className={styles.btnIcon}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+          </svg>
+        </div>
+        <div className={styles.btnGlow}></div>
+        <div className={styles.btnRipple}></div>
+      </button>
+
       {/* WhatsApp Button */}
       <button
         ref={whatsappRef}

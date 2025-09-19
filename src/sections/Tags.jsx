@@ -286,7 +286,6 @@ const Tags = () => {
                 </div>
                 <div className={styles.imageOverlay}>
                   <div className={styles.tagPattern}></div>
-                  <div className={styles.priceTag}>{tag.price}</div>
                   <div className={styles.categoryBadge}>{tag.category}</div>
                 </div>
               </div>

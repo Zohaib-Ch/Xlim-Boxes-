@@ -279,7 +279,6 @@ const Finishes = () => {
                 <div className={styles.shineOverlay}></div>
                 <div className={styles.imageOverlay}>
                   <div className={styles.finishTexture}></div>
-                  <div className={styles.priceTag}>{finish.price}</div>
                   <div className={styles.categoryBadge}>{finish.category}</div>
                 </div>
               </div>

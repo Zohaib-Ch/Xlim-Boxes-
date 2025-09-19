@@ -245,7 +245,6 @@ const LuxuryStyles = () => {
                 </div>
                 <div className={styles.imageOverlay}>
                   <div className={styles.overlayGradient}></div>
-                  <div className={styles.priceTag}>{style.price}</div>
                   <div className={styles.categoryBadge}>{style.category}</div>
                 </div>
               </div>

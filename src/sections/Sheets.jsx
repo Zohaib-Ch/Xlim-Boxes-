@@ -285,7 +285,6 @@ const Sheets = () => {
                 <div className={styles.paperLayer}></div>
                 <div className={styles.imageOverlay}>
                   <div className={styles.paperTexture}></div>
-                  <div className={styles.priceTag}>{sheet.price}</div>
                   <div className={styles.categoryBadge}>{sheet.category}</div>
                 </div>
               </div>

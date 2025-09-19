@@ -272,7 +272,6 @@ const Printing = () => {
                 <div className={styles.inkOverlay}></div>
                 <div className={styles.imageOverlay}>
                   <div className={styles.printPattern}></div>
-                  <div className={styles.priceTag}>{printStyle.price}</div>
                   <div className={styles.categoryBadge}>{printStyle.category}</div>
                 </div>
               </div>

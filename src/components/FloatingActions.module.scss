@@ -74,6 +74,22 @@
 }
 
 
+// Gmail Button
+.gmailBtn {
+  background: linear-gradient(135deg, #ea4335 0%, #d33b2c 100%);
+  color: white;
+
+  &:hover {
+    box-shadow: 
+      0 12px 40px rgba(234, 67, 53, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.2);
+  }
+
+  .btnGlow {
+    background: radial-gradient(circle, rgba(234, 67, 53, 0.3) 0%, transparent 70%);
+  }
+}
+
 // WhatsApp Button
 .whatsappBtn {
   background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
