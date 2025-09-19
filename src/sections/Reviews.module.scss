@@ -1,0 +1,497 @@
+@use '../styles/tokens' as *;
+@use '../styles/mixins' as *;
+
+// Reviews Section
+.reviews {
+  position: relative;
+  padding: var(--space-4xl) 0;
+  background: var(--bg-soft);
+  overflow: hidden;
+  
+  // Subtle background gradient
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 30% 20%, rgba(0, 229, 255, 0.02) 0%, transparent 50%),
+      radial-gradient(circle at 70% 80%, rgba(198, 166, 103, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  @include mobile {
+    padding: var(--space-3xl) 0;
+  }
+}
+
+.container {
+  @include container;
+  position: relative;
+  z-index: 1;
+}
+
+// Section Header
+.header {
+  text-align: center;
+  margin-bottom: var(--space-4xl);
+  
+  @include mobile {
+    margin-bottom: var(--space-3xl);
+  }
+}
+
+.headerContent {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: var(--space-md);
+  
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  }
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: var(--space-lg);
+  letter-spacing: -0.02em;
+}
+
+.titleAccent {
+  background: linear-gradient(135deg, var(--cyan) 0%, var(--cyan-light) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 400;
+}
+
+.description {
+  font-family: var(--font-ui);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto;
+
+  @include mobile {
+    font-size: 1.125rem;
+  }
+}
+
+// Carousel
+.carousel {
+  position: relative;
+  margin-bottom: var(--space-4xl);
+  
+  @include mobile {
+    margin-bottom: var(--space-3xl);
+  }
+}
+
+.carouselWrapper {
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: rgba(20, 21, 26, 0.3);
+  border: 1px solid rgba(234, 234, 240, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.reviewsTrack {
+  display: flex;
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  width: 100%;
+}
+
+// Review Card
+.reviewCard {
+  flex: 0 0 100%;
+  padding: var(--space-3xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  min-height: 500px;
+
+  @include mobile {
+    padding: var(--space-2xl);
+    gap: var(--space-xl);
+    min-height: 450px;
+  }
+
+  @media (max-width: 480px) {
+    padding: var(--space-xl);
+    gap: var(--space-lg);
+    min-height: 400px;
+  }
+}
+
+// Review Content
+.reviewContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.quoteIcon {
+  width: 48px;
+  height: 48px;
+  color: var(--gold);
+  opacity: 0.6;
+  
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 480px) {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.rating {
+  display: flex;
+  gap: 4px;
+  color: var(--gold);
+}
+
+.star {
+  transition: color 0.3s ease;
+}
+
+.reviewText {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0;
+  font-style: normal;
+  letter-spacing: -0.01em;
+
+  @include mobile {
+    font-size: 1.375rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.25rem;
+  }
+}
+
+// Project Info
+.projectInfo {
+  display: flex;
+  gap: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(234, 234, 240, 0.06);
+
+  @include mobile {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+}
+
+.projectDetail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.projectLabel {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.projectValue {
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink-light);
+}
+
+// Author Info
+.authorInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(234, 234, 240, 0.06);
+}
+
+.authorAvatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(198, 166, 103, 0.2);
+  transition: border-color 0.3s ease;
+
+  @media (max-width: 480px) {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+.authorDetails {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.authorName {
+  font-family: var(--font-ui);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
+}
+
+.authorRole {
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gold);
+  line-height: 1.2;
+
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+  }
+}
+
+.authorCompany {
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.2;
+
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+  }
+}
+
+// Carousel Controls
+.carouselControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+
+  @include mobile {
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+  }
+}
+
+.carouselBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(20, 21, 26, 0.4);
+  border: 1px solid rgba(234, 234, 240, 0.1);
+  border-radius: 50%;
+  color: var(--ink-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  &:hover {
+    background: rgba(20, 21, 26, 0.6);
+    border-color: rgba(198, 166, 103, 0.3);
+    color: var(--gold);
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  @media (max-width: 480px) {
+    width: 40px;
+    height: 40px;
+    
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+// Carousel Dots
+.carouselDots {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(234, 234, 240, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(198, 166, 103, 0.4);
+    transform: scale(1.2);
+  }
+}
+
+.activeDot {
+  background: var(--gold);
+  transform: scale(1.3);
+}
+
+// Trusted Brands
+.trustedBrands {
+  text-align: center;
+  padding-top: var(--space-3xl);
+  border-top: 1px solid rgba(234, 234, 240, 0.06);
+
+  @include mobile {
+    padding-top: var(--space-2xl);
+  }
+}
+
+.brandsHeader {
+  margin-bottom: var(--space-2xl);
+  
+  @include mobile {
+    margin-bottom: var(--space-xl);
+  }
+}
+
+.brandsLabel {
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.brandsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-xl);
+  max-width: 800px;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}
+
+// Brand Logo
+.brandLogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  background: rgba(20, 21, 26, 0.2);
+  border: 1px solid rgba(234, 234, 240, 0.04);
+  border-radius: var(--radius-lg);
+  transition: all 0.4s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(198, 166, 103, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+    .logoIcon {
+      color: var(--gold-light);
+      transform: scale(1.1);
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: var(--space-md);
+  }
+}
+
+.logoIcon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(198, 166, 103, 0.1);
+  border: 1px solid rgba(198, 166, 103, 0.2);
+  border-radius: var(--radius-md);
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  transition: all 0.4s ease;
+
+  @media (max-width: 480px) {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
+
+.brandName {
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink-light);
+  text-align: center;
+  line-height: 1.3;
+
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+  }
+}

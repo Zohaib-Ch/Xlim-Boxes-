@@ -1,0 +1,65 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="url(#gradient1)"/>
+  
+  <!-- Background Pattern -->
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0b0b0c;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#14151a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0b0b0c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#c6a667;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d4b876;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00e5ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00b4cc;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main Box Collection -->
+  <g transform="translate(100, 100)">
+    <!-- Large Gift Box -->
+    <rect x="50" y="50" width="150" height="100" rx="8" fill="url(#gradient1)" stroke="url(#gold)" stroke-width="2"/>
+    <rect x="50" y="50" width="150" height="30" rx="8" fill="url(#gold)"/>
+    <text x="125" y="70" text-anchor="middle" fill="#0b0b0c" font-family="serif" font-weight="bold" font-size="14">XLIM</text>
+    
+    <!-- Medium Black Box -->
+    <rect x="250" y="80" width="120" height="80" rx="6" fill="#1a1a1a" stroke="url(#cyan)" stroke-width="1"/>
+    <rect x="250" y="80" width="120" height="25" rx="6" fill="url(#cyan)"/>
+    <text x="310" y="97" text-anchor="middle" fill="#0b0b0c" font-family="serif" font-weight="bold" font-size="12">BOXES</text>
+    
+    <!-- Small Kraft Box -->
+    <rect x="400" y="120" width="100" height="70" rx="4" fill="#8b7355" stroke="#a68660" stroke-width="1"/>
+    <text x="450" y="160" text-anchor="middle" fill="#2d2520" font-family="serif" font-weight="bold" font-size="10">LUXURY</text>
+    
+    <!-- Cylindrical Box -->
+    <ellipse cx="150" cy="250" rx="40" ry="60" fill="url(#gradient1)" stroke="url(#gold)" stroke-width="2"/>
+    <ellipse cx="150" cy="200" rx="40" ry="15" fill="url(#gold)"/>
+    
+    <!-- Magnetic Closure Box -->
+    <rect x="250" y="220" width="140" height="90" rx="8" fill="#2a2a2a" stroke="url(#cyan)" stroke-width="2"/>
+    <rect x="250" y="220" width="140" height="20" rx="8" fill="url(#cyan)"/>
+    <circle cx="320" cy="230" r="3" fill="#0b0b0c"/>
+    
+    <!-- Collapsible Box -->
+    <path d="M420 250 L520 250 L540 220 L440 220 Z" fill="#3a3a3a" stroke="url(#gold)" stroke-width="1"/>
+    <rect x="420" y="250" width="100" height="60" rx="4" fill="#2a2a2a" stroke="url(#gold)" stroke-width="1"/>
+  </g>
+  
+  <!-- Brand Text -->
+  <text x="400" y="450" text-anchor="middle" fill="url(#gold)" font-family="serif" font-weight="bold" font-size="36">XLIM BOXES</text>
+  <text x="400" y="480" text-anchor="middle" fill="#eaeaf0" font-family="sans-serif" font-size="16" opacity="0.8">Luxury Rigid Packaging Collection</text>
+  
+  <!-- Decorative Elements -->
+  <circle cx="100" cy="100" r="3" fill="url(#cyan)" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="700" cy="150" r="4" fill="url(#gold)" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="650" cy="400" r="2" fill="#8b5cf6" opacity="0.5">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+</svg>

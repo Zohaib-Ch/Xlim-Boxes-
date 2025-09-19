@@ -1,0 +1,13 @@
+{
+  "images": [
+    {
+      "filename": "bg_luxury_texture.webp",
+      "description": "Dark luxury paper texture background for preloader",
+      "source": "Generated CSS gradient (placeholder)",
+      "license": "Created for project",
+      "dimensions": "N/A - CSS based",
+      "alt": "Dark luxury textured background with subtle paper grain effect"
+    }
+  ],
+  "note": "Real luxury texture images should be sourced from Unsplash, Pexels, or Pixabay with proper attribution. Current implementation uses CSS-based texture for performance."
+}

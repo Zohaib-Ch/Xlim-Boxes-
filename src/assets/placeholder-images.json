@@ -1,0 +1,29 @@
+{
+  "hero_products": [
+    {
+      "filename": "hero_magnetic.webp",
+      "type": "magnetic",
+      "description": "Luxury magnetic closure rigid box with premium finish",
+      "source": "Placeholder - CSS generated",
+      "dimensions": "180x200px",
+      "alt": "Premium magnetic closure rigid box with luxury finish and elegant design"
+    },
+    {
+      "filename": "hero_shoulder.webp", 
+      "type": "shoulder-neck",
+      "description": "Shoulder-neck rigid box with sophisticated design",
+      "source": "Placeholder - CSS generated", 
+      "dimensions": "160x220px",
+      "alt": "Elegant shoulder-neck rigid box with premium materials and refined construction"
+    },
+    {
+      "filename": "hero_cylinder.webp",
+      "type": "cylindrical", 
+      "description": "Cylindrical rigid tube packaging with luxury appeal",
+      "source": "Placeholder - CSS generated",
+      "dimensions": "140x180px", 
+      "alt": "Premium cylindrical rigid tube packaging with sophisticated finish"
+    }
+  ],
+  "note": "Placeholder images are CSS-generated for development. Production should use high-quality product photography from Unsplash/Pexels with proper licensing."
+}

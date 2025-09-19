@@ -1,0 +1,425 @@
+@use '../styles/tokens.scss' as *;
+@use '../styles/mixins.scss' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  z-index: var(--z-header);
+  background: rgba(20, 21, 26, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(234, 234, 240, 0.08);
+  transition: all 0.4s var(--ease-out);
+
+  &.scrolled {
+    border-bottom-color: rgba(234, 234, 240, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.container {
+  max-width: var(--container-max);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  @include flex-between;
+
+  @include mobile {
+    padding: 0 var(--space-sm);
+  }
+}
+
+// Logo
+.logo {
+  @include flex-center;
+  gap: var(--space-xs);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s var(--ease-out);
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  .xlim {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 1.75rem);
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.1em;
+    text-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+    
+    @include mobile {
+      font-size: clamp(1.25rem, 4vw, 1.5rem);
+    }
+  }
+
+  .boxes {
+    font-family: var(--font-ui);
+    font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+    font-weight: 500;
+    color: var(--brand);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.9;
+    
+    @include mobile {
+      font-size: clamp(0.625rem, 2.5vw, 0.75rem);
+    }
+  }
+}
+
+// Desktop Navigation
+.nav {
+  @include desktop {
+    display: block;
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.navList {
+  @include flex-center;
+  gap: var(--space-lg);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @include large {
+    gap: var(--space-xl);
+  }
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  position: relative;
+  display: block;
+  padding: var(--space-sm) 0;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: all 0.3s var(--ease-out);
+  overflow: hidden;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--ink);
+    
+    .navUnderline {
+      transform: scaleX(1);
+      background: var(--brand);
+    }
+  }
+
+  &.active {
+    color: var(--brand);
+    
+    .navUnderline {
+      transform: scaleX(1);
+      background: var(--brand);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+}
+
+.navUnderline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--muted);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: all 0.3s var(--ease-out);
+  border-radius: 1px;
+}
+
+// WhatsApp Button - Desktop
+.whatsappBtn {
+  @include flex-center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-lg);
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+  }
+
+  &.desktop {
+    @include mobile {
+      display: none;
+    }
+  }
+
+  .whatsappIcon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+// Mobile Hamburger
+.hamburger {
+  @include flex-column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s var(--ease-out);
+
+  @include desktop {
+    display: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.hamburgerLine {
+  width: 100%;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 1px;
+  transition: all 0.3s var(--ease-out);
+  transform-origin: center;
+
+  .hamburger.open & {
+    &:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    &:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+  }
+}
+
+// Mobile Menu
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba(20, 21, 26, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(234, 234, 240, 0.1);
+  overflow: hidden;
+}
+
+.mobileNav {
+  padding: var(--space-lg) 0;
+}
+
+.mobileNavList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobileNavItem {
+  border-bottom: 1px solid rgba(234, 234, 240, 0.05);
+
+  &:last-child {
+    border-bottom: none;
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(234, 234, 240, 0.1);
+  }
+}
+
+.mobileNavLink {
+  display: block;
+  padding: var(--space-md) var(--space-lg);
+  font-family: var(--font-ui);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  transition: all 0.3s var(--ease-out);
+
+  &:hover,
+  &:focus-visible {
+    color: var(--ink);
+    background: rgba(234, 234, 240, 0.05);
+    padding-left: calc(var(--space-lg) + var(--space-xs));
+  }
+
+  &.active {
+    color: var(--brand);
+    background: rgba(0, 229, 255, 0.08);
+    border-left: 3px solid var(--brand);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: -2px;
+  }
+}
+
+.mobileWhatsappBtn {
+  @include flex-center;
+  gap: var(--space-sm);
+  width: calc(100% - var(--space-xl));
+  margin: 0 var(--space-lg);
+  padding: var(--space-md);
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+
+  &:hover,
+  &:focus-visible {
+    background: linear-gradient(135deg, #22c55e, #16a085);
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+  }
+
+  .whatsappIcon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+// Mobile WhatsApp FAB
+.whatsappFab {
+  position: fixed;
+  bottom: var(--space-lg);
+  right: var(--space-lg);
+  width: 56px;
+  height: 56px;
+  @include flex-center;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: calc(var(--z-header) - 1);
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+  transition: all 0.3s var(--ease-out);
+  animation: pulse 3s infinite;
+
+  &.mobile {
+    @include desktop {
+      display: none;
+    }
+    
+    // Hide on mobile to prevent duplication with FloatingActions WhatsApp button
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &:hover,
+  &:focus-visible {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+  }
+
+  .whatsappIcon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+// Backdrop for mobile menu
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: calc(var(--z-header) - 1);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+// Animations
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5), 0 0 0 8px rgba(37, 211, 102, 0.1);
+  }
+}
+
+// Reduced Motion Support
+@media (prefers-reduced-motion: reduce) {
+  .whatsappFab {
+    animation: none;
+  }
+  
+  .logo:hover {
+    transform: none;
+  }
+  
+  .whatsappBtn:hover {
+    transform: none;
+  }
+  
+  .hamburger:hover {
+    transform: none;
+  }
+}
